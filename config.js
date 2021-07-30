@@ -1,0 +1,1 @@
+export let dbURL = "mongodb+srv://neervel:Gh5u5VFE6c5cdCH@cluster0.wz0cs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
