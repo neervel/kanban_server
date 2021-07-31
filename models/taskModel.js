@@ -32,8 +32,13 @@ taskSchema.virtual('dateFormat').get(function() {
 });
 
 taskSchema.virtual('daysAgo').get(function() {
-  return parseInt((new Date() - this.created)/(24*3600*1000)) + 1
-});
+  let result = parseInt((new Date() - this.created)/(24*3600*1000))
+  if (new Date().getDay() !== this.created.getDay() ) {
+    return result + 1
+  } else {
+    return result
+  }
+})
 
 const TaskModel = mongoose.model('tasks', taskSchema)
 
