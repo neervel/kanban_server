@@ -7,7 +7,7 @@ router.post('/tasks', (req, res) => {
   const task = new taskModel({
     title: req.body.title,
     description: req.body.description,
-    created: new Date().toLocaleString("ru", {month: 'numeric', day: 'numeric'}),
+    created: new Date(),
     status: 'todo'
   })
   task.save((err, data) => {
