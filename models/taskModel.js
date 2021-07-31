@@ -18,7 +18,22 @@ const taskSchema = new Schema({
     type: String,
     required: true
   }
+}, {
+  toObject: {
+  virtuals: true
+  },
+  toJSON: {
+  virtuals: true 
+  }
 })
+
+taskSchema.virtual('dateFormat').get(function() {
+  return this.created.toLocaleString("ru", {month: 'numeric', day: 'numeric'})
+});
+
+taskSchema.virtual('daysAgo').get(function() {
+  return parseInt((new Date() - this.created)/(24*3600*1000)) + 1
+});
 
 const TaskModel = mongoose.model('tasks', taskSchema)
 
