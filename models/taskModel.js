@@ -11,7 +11,7 @@ const taskSchema = new Schema({
     required: true
   },
   created: {
-    type: String,
+    type: Date,
     required: true
   },
   status: {
