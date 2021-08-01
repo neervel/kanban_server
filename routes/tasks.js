@@ -8,7 +8,7 @@ router.post('/tasks', (req, res) => {
     title: req.body.title,
     description: req.body.description,
     created: new Date(),
-    status: 'todo'
+    status: req.body.status
   })
   task.save((err, data) => {
     if (err) {
@@ -47,9 +47,6 @@ router.put('/tasks/:id', (req, res) => {
       }
       if (req.body.status) {
         task.status = req.body.status
-      }
-      if (req.body.created) {
-        
       }
       task.save((err) => {
         if (err) {
