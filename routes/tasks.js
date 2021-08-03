@@ -61,13 +61,12 @@ router.put('/tasks/:id', (req, res) => {
 })
 
 router.delete('/tasks/:id', (req, res) => {
-  taskModel.remove({_id: req.params.id}, err => {
-    if (err) {
-      res.sendStatus(500)
-    } else { 
-      res.sendStatus(200)
-    }
-  })
+  try {
+    const post = await taskModel.delete(req.params.id)
+    return res.json(post)
+  } catch (error) {
+    res.status(500).json(error)
+  }
 })
 
 export default router
