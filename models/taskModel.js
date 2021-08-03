@@ -40,6 +40,6 @@ taskSchema.virtual('daysAgo').get(function() {
   }
 })
 
-const TaskModel = mongoose.model('tasks', taskSchema)
+const Task = mongoose.model('tasks', taskSchema)
 
-export default TaskModel
+export default Task

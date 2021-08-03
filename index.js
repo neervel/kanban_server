@@ -3,7 +3,7 @@ import cors from 'cors'
 import morgan from 'morgan'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
-import router from './routes/tasks.js'
+import router from './routes/router.js'
 import {dbURL} from './config.js'
 mongoose.Promise = global.Promise
 
@@ -32,5 +32,3 @@ mongoose.connection
   .on('error', error => {
     console.warn(error)
   })
-
-
