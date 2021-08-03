@@ -30,10 +30,8 @@ class TaskController {
   async update(req, res) {
     try {
       const post = await TaskService.update(req)
-      console.log(post);
       return res.json(post)
     } catch (error) {
-      console.log(error);
       return res.status(500).json(error)
     }
   }

@@ -26,7 +26,6 @@ class TaskService {
   }
 
   async update(req) {
-    console.log(req.body);
     const task = {
       id: req.body.id,
       title: req.body.title,
